@@ -16,7 +16,7 @@ CREATE TABLE `simple_anti_robot_sessions` (
   `session_id` char(32) NOT NULL,
   `remaining` int(10) unsigned DEFAULT NULL,
   `expired_time` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`handshake_id`)
+  PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 CREATE TABLE `simple_anti_robot_attempts` (
   `session_id` char(32) NOT NULL,
