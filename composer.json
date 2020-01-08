@@ -1,0 +1,27 @@
+{
+    "name": "jqqjj/simple-anti-robot",
+    "description": "Simple APIs for protecting your application far away from robots",
+    "type": "php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jason",
+            "email": "jqqjj@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Jqqjj\\SimpleAntiRobot\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jqqjj\\SimpleAntiRobot\\Tests\\": "tests/"
+        }
+    }
+}
