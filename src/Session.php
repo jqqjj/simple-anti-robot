@@ -12,7 +12,7 @@ class Session
     protected $attributes;
     protected $original_attributes;
     protected $duration = 600;
-    protected $max_attack_num = 5;
+    protected $max_attempt_num = 5;
     
     public function __construct($session_id, AdapterInterface $adapter)
     {
@@ -49,7 +49,7 @@ class Session
     
     public function getAttempts()
     {
-        return $this->adapter->getSessionAttempts($this->getId(), $this->max_attack_num);
+        return $this->adapter->getSessionAttempts($this->getId(), $this->max_attempt_num);
     }
     
     public function addAttempt($status)
@@ -64,7 +64,7 @@ class Session
     
     public function resetRemaining()
     {
-        $this->attributes->remaining = $this->max_attack_num;
+        $this->attributes->remaining = $this->max_attempt_num;
     }
     
     public function trashData()
@@ -105,9 +105,9 @@ class Session
     
     private function _getIPRemaining($ip)
     {
-        $attempts = $this->adapter->getIPAttempts($ip, $this->max_attack_num);
+        $attempts = $this->adapter->getIPAttempts($ip, $this->max_attempt_num);
         if(empty($attempts)){
-            return $this->max_attack_num;
+            return $this->max_attempt_num;
         }
         
         $use = 0;
@@ -117,7 +117,7 @@ class Session
             }
             $use++;
         }
-        return max(array($this->max_attack_num - $use , 0));
+        return max(array($this->max_attempt_num - $use , 0));
     }
     
     public function __set($name, $value)
